@@ -7,13 +7,60 @@
     tools:context=".KeyInputMode">
 
     <EditText
-        android:id="@+id/editText"
-        android:layout_width="387dp"
-        android:layout_height="79dp"
+        android:id="@+id/et_sendText"
+        android:layout_width="270dp"
+        android:layout_height="64dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/bt_sendText"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:backgroundTint="@android:color/transparent"
+        android:onClick="onClick_bt_sendText"
+        android:scaleType="fitCenter"
+        android:tint="@color/design_default_color_primary"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/et_sendText"
+        app:layout_constraintStart_toEndOf="@+id/et_sendText"
+        app:layout_constraintTop_toTopOf="@+id/et_sendText"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/pic_sendbutton" />
+
+    <Button
+        android:id="@+id/bt_Enter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onclick_consttext"
+        android:text="Enter"
+        app:layout_constraintStart_toStartOf="@+id/et_sendText"
+        app:layout_constraintTop_toBottomOf="@+id/et_sendText" />
+
+    <Button
+        android:id="@+id/bt_Tab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onclick_consttext"
+        android:text="TAB"
+        app:layout_constraintStart_toEndOf="@+id/bt_Enter"
+        app:layout_constraintTop_toTopOf="@+id/bt_Enter" />
+
+    <Button
+        android:id="@+id/bt_Backspace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onclick_consttext"
+        android:text="BS"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/bt_Tab"
+        app:layout_constraintTop_toTopOf="@+id/bt_Tab" />
+
 </android.support.constraint.ConstraintLayout>

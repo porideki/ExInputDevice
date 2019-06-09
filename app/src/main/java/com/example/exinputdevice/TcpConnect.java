@@ -11,30 +11,34 @@ public class TcpConnect extends Thread {
     private String ip;
     private int port;
 
+    public Socket socket;
+    public InputStream inputStream;
+    public OutputStream outputStream;
+    public BufferedReader bufferedReader;
+    public BufferedWriter bufferedWriter;
+
+    //コンストラクタ
     TcpConnect(String ip, int port){
         this.ip = ip;
         this.port = port;
     }
 
+    //通信開始
     @Override
     public void run(){
 
         try{
 
             //ソケット作成
-            Socket socket = new Socket(this.ip, this.port);
+            this.socket = new Socket(this.ip, this.port);
 
             //入出力ストリーム取得
-            InputStream inputStream = socket.getInputStream();
-            OutputStream outputStream = socket.getOutputStream();
+            this.inputStream = socket.getInputStream();
+            this.outputStream = socket.getOutputStream();
 
             //入出力バッファ作成
-            BufferedReader bufferedReader = new BufferedReader( new InputStreamReader(inputStream, "UTF-8"));
-            BufferedWriter bufferedWriter = new BufferedWriter( new OutputStreamWriter(outputStream, "UTF-8"));
-
-            //編集と送信
-            bufferedWriter.write("Hello, Tcp.\n");
-            bufferedWriter.flush();
+            this.bufferedReader = new BufferedReader( new InputStreamReader(inputStream, "UTF-8"));
+            this.bufferedWriter = new BufferedWriter( new OutputStreamWriter(outputStream, "UTF-8"));
 
             //受信
             String receivedData = bufferedReader.readLine();
@@ -42,15 +46,42 @@ public class TcpConnect extends Thread {
             //受信データ表示
             Log.d("tcp", "Received: " + receivedData);
 
-            //破棄
-            inputStream.close();
-            outputStream.close();
-            socket.close();
-
         }catch (Exception e){
 
             e.printStackTrace();
 
+        }
+
+    }
+
+    public void Disconnect(){
+
+        try{
+
+            this.inputStream.close();
+            this.outputStream.close();
+            this.socket.close();
+
+            Log.d("tcp", "Disconnect.");
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
+    public void SendText(String str){
+
+        try{
+
+            OutputStream loutputStream = this.socket.getOutputStream();
+            BufferedWriter lbufferedWriter = new BufferedWriter( new OutputStreamWriter(loutputStream, "UTF-8"));
+
+            lbufferedWriter.write(str);
+            lbufferedWriter.flush();
+
+        }catch (Exception e){
+            e.printStackTrace();
         }
 
     }
