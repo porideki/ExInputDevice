@@ -21,7 +21,7 @@ public class SocketEx extends AppCompatActivity implements View.OnClickListener 
     private final static String BR=//改行
             System.getProperty("line.separator");
     private final static String IP=//IPアドレスの指定
-            "10.8.64.229";
+            "60.130.251.105";
     private TextView lblReceive;//受信ラベル
     private EditText edtSend;	//送信エディットテキスト
     private Button	 btnSend;	//送信ボタン
@@ -46,7 +46,7 @@ public class SocketEx extends AppCompatActivity implements View.OnClickListener 
 
         //送信エディットテキストの生成
         edtSend=new EditText(this);
-        edtSend.setId(2);
+        //edtSend.setId(0);
         edtSend.setText("",TextView.BufferType.NORMAL);
         setLLParams(edtSend,
                 LinearLayout.LayoutParams.FILL_PARENT,
@@ -62,7 +62,7 @@ public class SocketEx extends AppCompatActivity implements View.OnClickListener 
 
         //受信ラベルの生成
         lblReceive=new TextView(this);
-        lblReceive.setId(1);
+        //lblReceive.setId(1);
         lblReceive.setText("");
         lblReceive.setTextColor(Color.rgb(0, 0, 0));
         setLLParams(lblReceive,

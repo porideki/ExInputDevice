@@ -22,54 +22,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //BlueToothConnect
-        //BlueToothがサポートされているか
-        /*
-        this.BTAdapter = BluetoothAdapter.getDefaultAdapter();
-        if(this.BTAdapter != null) Log.d("SelfLog","Bluetoothはサポートされています");
-        else  Log.d("SelfLog","Bluetoothがサポートされていません");
-
-        //BlueToothが有効化されているか
-        if(!this.BTAdapter.isEnabled()){
-            //Bluetooth有効化インテント
-            Intent reqEnableBTIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            startActivityForResult(reqEnableBTIntent,REQUEST_ENABLE_BT);
-        }
-        */
-
         //SS操作
         new Handler().postDelayed(new Runnable() {  //二秒後にアクティビティを移動
             @Override
             public void run() {
                 Intent it = new Intent(getApplicationContext(), KeyInputMode.class);
+                //Intent it = new Intent(getApplicationContext(), SocketEx.class);
                 startActivity(it);
             }
         }, 2000);
 
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        /*
-        if (requestCode == REQUEST_ENABLE_BT) {
-            if (resultCode == RESULT_OK) { //BlueTooth有効化インテントからBlueToothが有効化された
-                Log.d("SelfLog","BlueToothが有効化されました");
-                btBroadcastReceiver = new BtBroadcastReceiver();
-
-                IntentFilter intentFilter = new IntentFilter();
-                intentFilter.addAction(BluetoothDevice.ACTION_FOUND);
-                registerReceiver(btBroadcastReceiver, intentFilter);
-
-                if (this.BTAdapter.startDiscovery()) {
-                    // 発見開始（結果はブロードキャストで取得）
-                } else {
-                    // 発見開始できず。Bluetooth が無効であるなど。
-                }
-            }else{
-                Log.d("SelfLog","BlueToothが有効化されませんでした");
-            }
-        }
-        */
     }
 
     @Override
