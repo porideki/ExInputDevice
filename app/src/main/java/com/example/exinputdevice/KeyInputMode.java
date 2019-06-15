@@ -12,7 +12,8 @@ import android.widget.EditText;
 public class KeyInputMode extends AppCompatActivity {
 
     private TcpConnect tcpConnect;
-    private final String serverIP = "192.168.3.64";
+    private final String serverIP = "172.18.4.158";
+    //private final String serverIP = "202.13.160.41";
     private final int serverPort = 14230;
 
     @Override
@@ -52,6 +53,14 @@ public class KeyInputMode extends AppCompatActivity {
             this.SendText("{TAB}");
         }else if(view == findViewById(R.id.bt_Backspace)) {
             this.SendText("{BS}");
+        }else if(view == findViewById(R.id.bt_Pgup)) {
+            this.SendText("{PGUP}");
+        }else if(view == findViewById(R.id.bt_Pgdn)) {
+            this.SendText("{PGDN}");
+        }else if(view == findViewById(R.id.bt_Left)) {
+            this.SendText("{LEFT}");
+        }else if(view == findViewById(R.id.bt_Right)) {
+            this.SendText("{RIGHT}");
         }
 
     }

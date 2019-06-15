@@ -63,4 +63,40 @@
         app:layout_constraintStart_toEndOf="@+id/bt_Tab"
         app:layout_constraintTop_toTopOf="@+id/bt_Tab" />
 
+    <Button
+        android:id="@+id/bt_Pgup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onclick_consttext"
+        android:text="PGUP"
+        app:layout_constraintStart_toEndOf="@+id/bt_Backspace"
+        app:layout_constraintTop_toTopOf="@+id/bt_Backspace" />
+
+    <Button
+        android:id="@+id/bt_Pgdn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onclick_consttext"
+        android:text="PGDN"
+        app:layout_constraintStart_toStartOf="@+id/bt_Pgup"
+        app:layout_constraintTop_toBottomOf="@+id/bt_Pgup" />
+
+    <Button
+        android:id="@+id/bt_Left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onclick_consttext"
+        android:text="LEFT"
+        app:layout_constraintStart_toStartOf="@+id/bt_Enter"
+        app:layout_constraintTop_toBottomOf="@+id/bt_Enter" />
+
+    <Button
+        android:id="@+id/bt_Right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onclick_consttext"
+        android:text="RIGHT"
+        app:layout_constraintStart_toEndOf="@+id/bt_Left"
+        app:layout_constraintTop_toTopOf="@+id/bt_Left" />
+
 </android.support.constraint.ConstraintLayout>
